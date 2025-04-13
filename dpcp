@@ -1,0 +1,13 @@
+module dpcp(CLK, DATAIN, START, STOP, Z);
+  input CLK, START;
+  input [3:0] DATAIN;
+  output STOP;
+  output [3:0] Z;
+  
+  wire LDA, LDB, LDC, CLRC, DECB, EQZ;
+  wire [3:0] BUS, BOUT;  
+  
+  mul dp(CLK, LDA, LDB, LDC, CLRC, DECB, DATAIN, EQZ,Z);
+  controller cp(CLK, LDA, LDB, LDC, CLRC, DECB, DATAIN, EQZ, START, STOP);
+  
+endmodule

@@ -1,0 +1,8 @@
+module adder(x,y,z);
+input [3:0]x,y;
+output reg[3:0]z;
+always @(*)begin
+	z=x+y;
+end
+
+endmodule

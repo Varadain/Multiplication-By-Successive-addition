@@ -1,0 +1,17 @@
+module pipoc(CLK, ldc, y, z, clrc);
+    input CLK, ldc, clrc;
+    input [3:0] z;
+    output reg [3:0] y;
+     
+
+    always @(posedge CLK) begin
+        if (clrc) begin 
+            y <= 0;
+           
+        end 
+        else if (ldc) begin 
+            y <= z;
+            
+        end
+    end
+endmodule

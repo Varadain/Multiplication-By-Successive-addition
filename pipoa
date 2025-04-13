@@ -1,0 +1,9 @@
+module pipoa(CLK,lda,x,bus);
+input CLK,lda;
+input [3:0]bus;
+output reg[3:0]x;
+always @(posedge CLK)
+begin 
+	if(lda==1)begin x<=bus; end
+end
+endmodule

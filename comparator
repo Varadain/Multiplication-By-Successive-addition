@@ -1,0 +1,9 @@
+module comparator (eqz,bout);
+input [3:0]bout;
+output reg eqz;
+
+always @(*)begin
+	if(bout==0) eqz=1;
+end
+
+endmodule

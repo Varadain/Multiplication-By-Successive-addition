@@ -1,0 +1,14 @@
+module mul(CLK,LDA,LDB,LDC,CLRC,DECB,DATAIN,EQZ,Z);
+input CLK,LDA,LDB,LDC,CLRC,DECB;
+input [3:0]DATAIN;
+output EQZ;
+output [3:0] Z;
+
+wire [3:0]X,Y,BOUT;
+
+pipoa a(CLK,LDA,X,DATAIN);
+pipoc c(CLK,LDC,Y,Z,CLRC);
+adder ad(X,Y,Z);
+counter b(CLK,LDB,DECB,BOUT,DATAIN);
+comparator com(EQZ,BOUT);
+endmodule

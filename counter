@@ -1,0 +1,16 @@
+module counter(CLK, ldb, decb, bout, bus);
+    input CLK, ldb, decb;
+    input [3:0] bus;
+    output reg [3:0] bout;
+
+    always @(posedge CLK) begin
+        if (ldb == 1)
+            bout <= bus;
+        else if (decb == 1) begin
+            if (bout != 4'b0000)
+                bout <= bout - 1;
+        end
+        else
+            bout <= 0;
+    end
+endmodule
